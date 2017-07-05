@@ -47,7 +47,7 @@
 
   <properties>
     <ojai.version>2.0-SNAPSHOT</ojai.version>
-    <mapr.library.version>6.0.0-mapr-SNAPSHOT</mapr.library.version>
+    <mapr.library.version>6.0.0-mapr-beta</mapr.library.version>
 
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -74,6 +74,9 @@
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.6.0</version>
+        <configuration>
+          <cleanupDaemonThreads>false</cleanupDaemonThreads>
+        </configuration>
       </plugin>
     </plugins>
   </build>

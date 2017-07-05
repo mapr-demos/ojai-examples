@@ -36,7 +36,7 @@ public class OJAI_013_ReadYourOwnWrite {
     storeNode1.beginCommitContext();
 
     // issue a set of mutations/insert/delete/etc
-    storeNode1.update("user0000", connectionNode1.newMutation().set("salary", 114526.00));
+    storeNode1.update("user0000", connectionNode1.newMutation().set("address.zipCode", 95110L));
     storeNode1.insertOrReplace(connectionNode1.newDocument(
         "{\"_id\": \"user0004\", \"name\": \"Jean Doe\", \"age\": 56, \"address\": {\"zipCode\":{\"$numberLong\":95110}}}"));
 
@@ -62,8 +62,7 @@ public class OJAI_013_ReadYourOwnWrite {
     // Build an OJAI query and set its commit context with timeout of 2 seconds
     final Query query = connectionNode2.newQuery()
         .select("_id", "name", "address.zipCode")
-        .where("{\"$ge\": {\"address.zipCode\": 95110}}")
-        .setTimeout(2000)
+        .where("{\"$gt\": {\"address.zipCode\": 95110}}")
         .setCommitContext(commitContext)
         .build();
 
