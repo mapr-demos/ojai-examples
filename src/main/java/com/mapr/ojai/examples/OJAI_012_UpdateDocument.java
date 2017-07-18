@@ -23,6 +23,10 @@ import org.ojai.store.DriverManager;
 public class OJAI_012_UpdateDocument {
 
   public static void main(String[] args) {
+
+    System.out.println("==== Start Application ===");
+
+
     // Create an OJAI connection to MapR cluster
     final Connection connection = DriverManager.getConnection("ojai:mapr:");
 
@@ -33,6 +37,9 @@ public class OJAI_012_UpdateDocument {
     DocumentMutation mutation = connection.newMutation()
         .set("address.zipCode", 95196L);
 
+
+    System.out.println("\tUpdating document user0002 ");
+
     // Update the Document with '_id' = "user0002"
     store.update("user0002", mutation);
 
@@ -42,7 +49,7 @@ public class OJAI_012_UpdateDocument {
     // close the OJAI connection and release any resources held by the connection
     connection.close();
 
-    System.out.println("Ok.");
+    System.out.println("==== End Application ===");
   }
 
 }

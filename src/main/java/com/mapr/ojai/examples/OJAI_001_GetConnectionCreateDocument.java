@@ -26,6 +26,10 @@ import com.mapr.ojai.examples.data.User;
 public class OJAI_001_GetConnectionCreateDocument {
 
   public static void main(String[] args) {
+
+    System.out.println("==== Start Application ===");
+
+
     // Create an OJAI connection to MapR cluster
     final Connection connection = DriverManager.getConnection("ojai:mapr:");
 
@@ -43,7 +47,7 @@ public class OJAI_001_GetConnectionCreateDocument {
     // close the OJAI connection and release any resources held by the connection
     connection.close();
 
-    System.out.println("Ok.");
+    System.out.println("==== End Application ===");
   }
 
 }

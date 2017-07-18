@@ -26,6 +26,9 @@ import com.mapr.ojai.examples.data.User;
 public class OJAI_002_GetStoreAndInsertDocuments {
 
   public static void main(String[] args) {
+
+    System.out.println("==== Start Application ===");
+
     // Create an OJAI connection to MapR cluster
     final Connection connection = DriverManager.getConnection("ojai:mapr:");
 
@@ -36,6 +39,8 @@ public class OJAI_002_GetStoreAndInsertDocuments {
       // Create an OJAI Document form the Java bean (there are other ways too)
       final Document userDocument = connection.newDocument(someUser);
 
+      System.out.println("\t inserting "+ userDocument.getId());
+
       // insert the OJAI Document into the DocumentStore
       store.insertOrReplace(userDocument);
     }
@@ -45,8 +50,8 @@ public class OJAI_002_GetStoreAndInsertDocuments {
 
     // close the OJAI connection and release any resources held by the connection
     connection.close();
-    
-    System.out.println("Ok.");
+
+    System.out.println("==== End Application ===");
   }
 
 }

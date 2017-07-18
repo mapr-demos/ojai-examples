@@ -26,6 +26,10 @@ import org.ojai.store.Query;
 public class OJAI_013_ReadYourOwnWrite {
 
   public static void main(String[] args) {
+
+    System.out.println("==== Start Application ===");
+
+
     // Create an OJAI connection to MapR cluster
     final Connection connectionNode1 = DriverManager.getConnection("ojai:mapr:");
 
@@ -83,7 +87,7 @@ public class OJAI_013_ReadYourOwnWrite {
     // close the OJAI connection and release any resources held by the connection
     connectionNode2.close();
 
-    System.out.println("Ok.");
+    System.out.println("==== End Application ===");
   }
 
 }

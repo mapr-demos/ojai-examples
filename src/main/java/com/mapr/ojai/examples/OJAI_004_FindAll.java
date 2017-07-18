@@ -24,6 +24,10 @@ import org.ojai.store.DriverManager;
 public class OJAI_004_FindAll {
 
   public static void main(String[] args) {
+
+    System.out.println("==== Start Application ===");
+
+
     // Create an OJAI connection to MapR cluster
     final Connection connection = DriverManager.getConnection("ojai:mapr:");
 
@@ -44,7 +48,7 @@ public class OJAI_004_FindAll {
     // close the OJAI connection and release any resources held by the connection
     connection.close();
 
-    System.out.println("Ok.");
+    System.out.println("==== End Application ===");
   }
 
 }

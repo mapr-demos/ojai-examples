@@ -26,6 +26,10 @@ import org.ojai.store.QueryCondition.Op;
 public class OJAI_007_FindQueryWithCondition {
 
   public static void main(final String[] args) {
+
+    System.out.println("==== Start Application ===");
+
+
     // Create an OJAI connection to MapR cluster
     final Connection connection = DriverManager.getConnection("ojai:mapr:");
 
@@ -54,7 +58,7 @@ public class OJAI_007_FindQueryWithCondition {
     // close the OJAI connection and release any resources held by the connection
     connection.close();
 
-    System.out.println("Ok.");
+    System.out.println("==== End Application ===");
   }
 
 }

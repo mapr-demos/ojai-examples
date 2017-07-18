@@ -39,7 +39,8 @@
   <repositories>
     <repository>
       <id>mapr-internal</id>
-      <url>http://maven.corp.maprtech.com/nexus/content/groups/public/</url>
+      <url>http://10.10.100.99:8081/nexus/content/groups/mixed-stage-and-dev/</url>
+      <!--<url>http://maven.corp.maprtech.com/nexus/content/groups/public/</url>-->
       <snapshots><enabled>true</enabled></snapshots>
       <releases><enabled>true</enabled></releases>
     </repository>
