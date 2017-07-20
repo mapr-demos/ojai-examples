@@ -13,7 +13,7 @@ This project contains examples to discover the key features of OJAI 2.0 and MapR
 ## Build and Run the Sample Application
 
 
-####1 - Create a ne JSON Table
+#### 1 - Create a new JSON Table
 
 The sample application uses a JSON Table named `/demo_table`. Open a terminal window as mapr user and run the following command:
  
@@ -22,7 +22,7 @@ $ maprcli table create -path /demo_table -tabletype json
 ```
 
 
-####2 - Build and Deploy the Sample Application
+#### 2 - Build and Deploy the Sample Application
 
 Run the maven command to build the project:
 
@@ -39,7 +39,7 @@ $ scp ./target/ojai-2-samples-1.0-SNAPSHOT.jar mapr@mapr60:/home/mapr/
 Where `mapr60` is one of the node of the MapR cluster.
 
 
-####3 - Run the Sample Application
+#### 3 - Run the Sample Application
 
 In a terminal window, connected as mapr user type the following commands to run the various samples
 
@@ -72,7 +72,7 @@ $ java -cp ojai-2-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.
 ```
 
 
-####4- Run the application from the IDE (Optional)
+#### 4- Run the application from the IDE (Optional)
 
 The following steps are documented for MapR cluster where the secured mode has not been enabled.
 
@@ -123,10 +123,11 @@ For example if your desktop user is "jdoe" with the id 501, create the user on y
 
 
 ```
-$ mvn exec:java -Dexec.mainClass="com.mapr.ojai.examples.OJAI_011_FindQueryWithOrderByLimitOffset" -Dfs.mapr.bailout.on.library.mismatch=false
+$ mvn exec:java -Dexec.mainClass="com.mapr.ojai.examples.OJAI_011_FindQueryWithOrderByLimitOffset"
 ```
 
-```
+
+
 
 ## Developing with OJAI and MapR DB
 
@@ -141,7 +142,6 @@ To use OJAI and MapR-DB you must add the MapR Maven Repository and the MapR OJAI
 MapR Maven Repository
 
 ```xml
-
     <repository>
       <id>mapr-releases</id>
       <url>http://repository.mapr.com/maven/</url>
@@ -152,12 +152,6 @@ MapR Maven Repository
 MapR-DB and OJAI Dependencies
 
 ```xml
-    <dependency>
-      <artifactId>ojai</artifactId>
-      <groupId>org.ojai</groupId>
-      <version>2.0</version>
-    </dependency>
-
     <dependency>
       <artifactId>mapr-ojai-driver</artifactId>
       <groupId>com.mapr.ojai</groupId>
@@ -173,10 +167,10 @@ MapR-DB and OJAI Dependencies
 
 The first thing to do when you want to use MapR-DB is to get an OJAI connection to the cluster using the following code:
 
-```
+```java
     // Create an OJAI connection to MapR cluster
     Connection connection = DriverManager.getConnection("ojai:mapr:");
-
+	
 ```
 
 This connection will use the MapR Client configuration to connect to the MapR Cluster
@@ -185,7 +179,7 @@ This connection will use the MapR Client configuration to connect to the MapR Cl
 
 OJAI expose the MapR-DB JSON Tables as a DocumentStore that you get from the Connection object:
 
-```
+```java
     // Get an instance of OJAI DocumentStore
     DocumentStore store = connection.getStore("/demo_table");
 
@@ -199,7 +193,7 @@ Use the `connection.newDocument()` method to create a new document from a String
 
 Once the document is created use the 'store.insertOrUpdate()' method, or other, to insert the document in the table.
 
-```
+```java
     store.insertOrReplace(userDocument);
 ```
 

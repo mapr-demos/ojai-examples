@@ -44,7 +44,6 @@
   </repositories>
 
   <properties>
-    <ojai.version>2.0-mapr-1707-beta</ojai.version>
     <mapr.library.version>6.0.0-mapr-beta</mapr.library.version>
 
     <maven.compiler.source>1.8</maven.compiler.source>
@@ -52,17 +51,11 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <artifactId>ojai</artifactId>
-      <groupId>org.ojai</groupId>
-      <version>${ojai.version}</version>
-    </dependency>
 
     <dependency>
       <artifactId>mapr-ojai-driver</artifactId>
       <groupId>com.mapr.ojai</groupId>
       <version>${mapr.library.version}</version>
-      <scope>runtime</scope>
     </dependency>
   </dependencies>
 
