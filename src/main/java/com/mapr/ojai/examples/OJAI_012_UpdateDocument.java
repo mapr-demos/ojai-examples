@@ -33,15 +33,26 @@ public class OJAI_012_UpdateDocument {
     // Get an instance of OJAI DocumentStore
     final DocumentStore store = connection.getStore("/demo_table");
 
+    String docId = "user0002";
+
+    // Print the document before update
+    System.out.println( "\t"+ store.findById(docId).getMap("address").toString() );
+
+
+
     // Create a DocumentMutation to update the zipCode field
     DocumentMutation mutation = connection.newMutation()
         .set("address.zipCode", 95196L);
 
 
-    System.out.println("\tUpdating document user0002 ");
+    System.out.println("\tUpdating document "+ docId);
 
     // Update the Document with '_id' = "user0002"
-    store.update("user0002", mutation);
+    store.update(docId, mutation);
+
+    // Print the document after update
+    System.out.println( "\t"+ store.findById(docId).getMap("address").toString() );
+
 
     // Close this instance of OJAI DocumentStore
     store.close();

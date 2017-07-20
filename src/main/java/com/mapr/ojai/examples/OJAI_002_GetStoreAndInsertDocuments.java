@@ -32,7 +32,7 @@ public class OJAI_002_GetStoreAndInsertDocuments {
     // Create an OJAI connection to MapR cluster
     final Connection connection = DriverManager.getConnection("ojai:mapr:");
 
-    // Get an instance of OJAI DocumentStore
+    // Get an instance of OJAI
     final DocumentStore store = connection.getStore("/demo_table");
 
     for (final User someUser : Dataset.users) {

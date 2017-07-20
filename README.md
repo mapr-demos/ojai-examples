@@ -121,13 +121,10 @@ For example if your desktop user is "jdoe" with the id 501, create the user on y
 
 **4- Run the sample applications**
 
-You can now run the sample application from your IDE or Maven:
 
 ```
 $ mvn exec:java -Dexec.mainClass="com.mapr.ojai.examples.OJAI_011_FindQueryWithOrderByLimitOffset" -Dfs.mapr.bailout.on.library.mismatch=false
 ```
-
-*Note: -Dfs.mapr.bailout.on.library.mismatch=false will be remove for official Beta build*
 
 ```
 
@@ -144,10 +141,12 @@ To use OJAI and MapR-DB you must add the MapR Maven Repository and the MapR OJAI
 MapR Maven Repository
 
 ```xml
+
     <repository>
       <id>mapr-releases</id>
       <url>http://repository.mapr.com/maven/</url>
     </repository>
+
 ```
 
 MapR-DB and OJAI Dependencies
