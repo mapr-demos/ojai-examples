@@ -37,7 +37,7 @@ public class OJAI_010_FindQueryWithOrderBy {
 
     // Build an OJAI query with QueryCondition
     final Query query = connection.newQuery()
-        .select("_id", "name", "address.zipCode")
+        .select("_id", "firstName", "lastName", "address.zipCode")
         .orderBy("_id")
         .build();
 

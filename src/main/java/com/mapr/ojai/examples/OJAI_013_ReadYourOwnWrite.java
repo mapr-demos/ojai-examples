@@ -42,7 +42,7 @@ public class OJAI_013_ReadYourOwnWrite {
     // issue a set of mutations/insert/delete/etc
     storeNode1.update("user0000", connectionNode1.newMutation().set("address.zipCode", 95110L));
     storeNode1.insertOrReplace(connectionNode1.newDocument(
-        "{\"_id\": \"user0004\", \"name\": \"Jean Doe\", \"age\": 56, \"address\": {\"zipCode\":{\"$numberLong\":95110}}}"));
+        "{\"_id\": \"user0004\", \"firstName\": \"Joel\", \"lastName\": \"Smith\", \"age\": 56, \"address\": {\"zipCode\":{\"$numberLong\":95110}}}"));
 
     final String commitContext = storeNode1.endTrackingWrites();
 

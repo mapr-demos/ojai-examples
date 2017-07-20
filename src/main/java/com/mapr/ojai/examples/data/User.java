@@ -18,14 +18,16 @@ package com.mapr.ojai.examples.data;
 public final class User {
   public String _id;                    // the identifier of the objects
   public int age;                       // scalar field
-  public String name;                   // scalar field
+  public String firstName;             // scalar field
+  public String lastName;              // scalar field
   public Address address;               // complex field
   public PhoneNumber[] phoneNumbers;    // repeated, complex field
 
-  public User(String _id, int age, String name, Address address, PhoneNumber[] phoneNumbers) {
+  public User(String _id, int age, String firstName, String lastName, Address address, PhoneNumber[] phoneNumbers) {
     this._id = _id;
     this.age = age;
-    this.name = name;
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.address = address;
     this.phoneNumbers = phoneNumbers;
   }
