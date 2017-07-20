@@ -65,7 +65,7 @@ public class OJAI_013_ReadYourOwnWrite {
 
     // Build an OJAI query and set its commit context with timeout of 2 seconds
     final Query query = connectionNode2.newQuery()
-        .select("_id", "name", "address.zipCode")
+        .select("_id", "firstName", "lastName", "address.zipCode")
         .where("{\"$gt\": {\"address.zipCode\": 95110}}")
         .waitForTrackedWrites(commitContext)
         .build();
