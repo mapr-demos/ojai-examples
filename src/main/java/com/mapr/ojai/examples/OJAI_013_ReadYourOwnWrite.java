@@ -37,14 +37,14 @@ public class OJAI_013_ReadYourOwnWrite {
     final DocumentStore storeNode1 = connectionNode1.getStore("/demo_table");
 
     // initiate tracking of commit-context
-    storeNode1.beginCommitContext();
+    storeNode1.beginTrackingWrites();
 
     // issue a set of mutations/insert/delete/etc
     storeNode1.update("user0000", connectionNode1.newMutation().set("address.zipCode", 95110L));
     storeNode1.insertOrReplace(connectionNode1.newDocument(
         "{\"_id\": \"user0004\", \"name\": \"Jean Doe\", \"age\": 56, \"address\": {\"zipCode\":{\"$numberLong\":95110}}}"));
 
-    final String commitContext = storeNode1.commitAndGetContext();
+    final String commitContext = storeNode1.endTrackingWrites();
 
     // Close this instance of OJAI DocumentStore
     storeNode1.close();
@@ -67,7 +67,7 @@ public class OJAI_013_ReadYourOwnWrite {
     final Query query = connectionNode2.newQuery()
         .select("_id", "name", "address.zipCode")
         .where("{\"$gt\": {\"address.zipCode\": 95110}}")
-        .setCommitContext(commitContext)
+        .waitForTrackedWrites(commitContext)
         .build();
 
     try {
