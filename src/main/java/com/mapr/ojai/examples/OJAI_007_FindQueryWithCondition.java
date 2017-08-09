@@ -40,7 +40,7 @@ public class OJAI_007_FindQueryWithCondition {
     final Query query = connection.newQuery()
         .where(
             connection.newCondition()                   //
-              .is("address.zipCode", Op.EQUAL, 95196)   // Build and OJAI QueryCondition
+              .is("address.zipCode", Op.EQUAL, 95196)   // Build an OJAI QueryCondition
               .build())                                 //
         .build();
 

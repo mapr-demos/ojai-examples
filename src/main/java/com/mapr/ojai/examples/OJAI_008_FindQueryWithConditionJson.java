@@ -35,7 +35,7 @@ public class OJAI_008_FindQueryWithConditionJson {
     // Get an instance of OJAI DocumentStore
     final DocumentStore store = connection.getStore("/demo_table");
 
-    // Build an OJAI query with QueryCondition
+    // Build an OJAI query with the condition specified as a JSON string
     final Query query = connection.newQuery()
         .where("{\"$eq\": {\"address.zipCode\": 95196}}")
         .build();

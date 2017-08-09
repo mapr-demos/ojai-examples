@@ -35,7 +35,7 @@ public class OJAI_011_FindQueryWithOrderByLimitOffset {
     // Get an instance of OJAI DocumentStore
     final DocumentStore store = connection.getStore("/demo_table");
 
-    // Build an OJAI query with QueryCondition
+    // Build an OJAI query with an order by, offset, and limit
     final Query query = connection.newQuery()
         .select("_id", "firstName", "lastName", "address.zipCode")
         .orderBy("_id")
