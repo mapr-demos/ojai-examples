@@ -5,7 +5,7 @@ This project contains examples to discover the key features of OJAI 2.0 and MapR
 
 **Prerequisites**
 
-* MapR Converged Data Platform 6.0 Beta
+* MapR Converged Data Platform 6.0
 * JDK 8
 * Maven 3.0
 
@@ -155,7 +155,7 @@ MapR-DB and OJAI Dependencies
     <dependency>
       <artifactId>mapr-ojai-driver</artifactId>
       <groupId>com.mapr.ojai</groupId>
-      <version>6.0.0-mapr-beta</version>
+      <version>6.0.0-mapr</version>
     </dependency>
 ```
 
