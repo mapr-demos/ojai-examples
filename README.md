@@ -24,7 +24,7 @@ $ maprcli table create -path /demo_table -tabletype json
 Optionally you can give access to this table to any user using the following command:
 
 ```
-$ 
+$ maprcli table cf edit -path /demo_table -cfname default -readperm p -writeperm p -traverseperm  p
 ```
 
 #### 2 - Build and Deploy the Sample Application
