@@ -21,6 +21,11 @@ The sample application uses a JSON Table named `/demo_table`. Open a terminal wi
 $ maprcli table create -path /demo_table -tabletype json
 ```
 
+Optionally you can give access to this table to any user using the following command:
+
+```
+$ 
+```
 
 #### 2 - Build and Deploy the Sample Application
 
@@ -160,7 +165,7 @@ MapR-DB and OJAI Dependencies
 ```
 
 
-### Using OJAI and MapR-DB ABI
+### Using OJAI and MapR-DB API
 
 
 **1- OJAI Connection**
