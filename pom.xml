@@ -44,7 +44,7 @@
   </repositories>
 
   <properties>
-    <mapr.library.version>6.0.0-mapr-beta</mapr.library.version>
+    <mapr.library.version>6.0.0-mapr</mapr.library.version>
 
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
