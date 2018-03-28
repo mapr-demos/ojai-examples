@@ -1,14 +1,16 @@
-from mapr.ojai.ojai_query.OJAIQuery import OJAIQuery
 from mapr.ojai.storage.ConnectionFactory import ConnectionFactory
 
 # Create a connection to data access server
-connection = ConnectionFactory.get_connection(url="localhost:5678")
+connection = ConnectionFactory.get_connection(url='localhost:5678')
 
 # Get a store and assign it as a DocumentStore object
-store = connection.get_store("/sample_store1")
+store = connection.get_store('/demo_table')
 
 # Build an OJAI query
-query = OJAIQuery().select(['_id', 'name']).order_by('_id').build()
+query = connection.new_query()\
+    .select(['name', 'adress.zipCode', 'age', 'phoneNumbers[0]'])\
+    .where("{\"$eq\": {\"address.zipCode\": 95196}}")\
+    .build()
 
 # fetch the OJAI Document by its '_id' field
 doc_stream = store.find(query)
@@ -17,5 +19,5 @@ doc_stream = store.find(query)
 for doc in doc_stream:
     print(doc.as_json_str())
 
-# close
+# close the OJAI connection
 connection.close()

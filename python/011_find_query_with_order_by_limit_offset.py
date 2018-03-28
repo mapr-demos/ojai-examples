@@ -7,7 +7,12 @@ connection = ConnectionFactory.get_connection(url='localhost:5678')
 store = connection.get_store('/demo_table')
 
 # Build an OJAI query
-query = connection.new_query().build()
+query = connection.new_query()\
+    .select(['_id', 'firstName', 'lastName', 'address.zipCode'])\
+    .order_by('_id')\
+    .offset(2)\
+    .limit(1)\
+    .build()
 
 # fetch the OJAI Document by its '_id' field
 doc_stream = store.find(query)
