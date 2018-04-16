@@ -11,12 +11,12 @@ store = connection.get_store('/demo_table')
 query = connection.new_query().where(connection.new_condition().is_('address.zipCode', QueryOp.EQUAL, 95196)
                                      .close().build()).build()
 
-# fetch the OJAI Document by its '_id' field
-doc_stream = store.find(query)
+# fetch the OJAI Documents by query
+query_result = store.find(query)
 
 # Print OJAI Documents from document stream
-for doc in doc_stream:
-    print(doc.as_json_str())
+for doc in query_result.iterator():
+    print(doc.as_dictionary())
 
 # close the OJAI connection
 connection.close()

@@ -12,12 +12,12 @@ query = connection.new_query()\
     .where("{\"$eq\": {\"address.zipCode\": 95196}}")\
     .build()
 
-# fetch the OJAI Document by its '_id' field
-doc_stream = store.find(query)
+# fetch OJAI Documents by query
+query_result = store.find(query)
 
 # Print OJAI Documents from document stream
-for doc in doc_stream:
-    print(doc.as_json_str())
+for doc in query_result.iterator():
+    print(doc.as_dictionary())
 
 # close the OJAI connection
 connection.close()
