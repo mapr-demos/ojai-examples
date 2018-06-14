@@ -18,7 +18,7 @@ print("Document with id {0} before update".format(doc_id))
 print(document_before_update)
 
 # Create mutation to update the zipCode field
-mutation = connection.new_mutation().set_or_replace('address.zipCode', 95196)
+mutation = {'$put': {'address.zipCode': 95196}}
 
 # Execute update
 store.update(id=doc_id, mutation=mutation)

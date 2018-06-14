@@ -10,13 +10,14 @@ connection = ConnectionFactory.get_connection(connection_str=connection_str)
 # Get a store and assign it as a DocumentStore object
 store = connection.get_store('/demo_table')
 
-# Build an OJAI query
-query = connection.new_query()\
-    .select(['_id', 'firstName', 'lastName', 'address.zipCode'])\
-    .order_by('_id')\
-    .offset(2)\
-    .limit(1)\
-    .build()
+# Create an OJAI query
+query = {"$offset": 2,
+         "$select": ["_id",
+                     "firstName",
+                     "lastName",
+                     "address.zipCode"],
+         "$limit": 1,
+         "$orderby": {"_id": "asc"}}
 
 # fetch OJAI Documents by query
 query_result = store.find(query, results_as_document=True)

@@ -11,9 +11,13 @@ connection = ConnectionFactory.get_connection(connection_str=connection_str)
 # Get a store and assign it as a DocumentStore object
 store = connection.get_store('/demo_table')
 
-# Build an OJAI query
-query = connection.new_query().where(connection.new_condition().is_('address.zipCode', QueryOp.EQUAL, 95196)
-                                     .close().build()).build()
+# Create an OJAI query
+query = connection.new_query()\
+    .where(connection.new_condition()
+           .is_('address.zipCode', QueryOp.EQUAL, 95196)
+           .close()
+           .build())\
+    .build()
 
 # fetch the OJAI Documents by query
 query_result = store.find(query)
