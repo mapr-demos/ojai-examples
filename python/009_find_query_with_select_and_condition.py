@@ -17,9 +17,14 @@ query = {"$select": ["name",
                      "phoneNumbers[0]"],
          "$where": {"$eq": {"address.zipCode": 95196}}}
 
+# options for find request
+options = {
+    'ojai.mapr.query.result-as-document': True
+    }
+
 # fetch OJAI Documents by query
 query_result = store.find(query,
-                          results_as_document=True)
+                          options=options)
 
 # Print OJAI Documents from document stream
 for doc in query_result:

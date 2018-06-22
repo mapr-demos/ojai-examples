@@ -13,8 +13,13 @@ store = connection.get_store('/demo_table')
 # Create an OJAI query
 query = {"$select": ["_id", "address.zipCode"]}
 
+# options for find request
+options = {
+    'ojai.mapr.query.result-as-document': True
+    }
+
 # fetch OJAI Documents by query
-query_result = store.find(query, results_as_document=True)
+query_result = store.find(query, options=options)
 
 # Print OJAI Documents from document stream
 for doc in query_result:
