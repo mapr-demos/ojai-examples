@@ -8,7 +8,10 @@ connection_str = "localhost:5678?auth=basic;user=mapr;password=mapr;" \
 connection = ConnectionFactory.get_connection(connection_str=connection_str)
 
 # Get a store and assign it as a DocumentStore object
-store = connection.get_store('/demo_table')
+if connection.is_store_exists('/demo_table'):
+    store = connection.get_store('/demo_table')
+else:
+    store = connection.create_store('/demo_table')
 
 document_list = [{'_id': 'user0000',
                   'age': 35,

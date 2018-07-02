@@ -25,7 +25,7 @@ condition = {'$eq': {'address.street': '320 Blossom Hill Road'}}
 
 # Execute check_and_update.
 # Returns True if condition True and document was updated.
-update_result = store.check_and_update(id=doc_id,
+update_result = store.check_and_update(_id=doc_id,
                                        mutation=mutation,
                                        query_condition=condition)
 

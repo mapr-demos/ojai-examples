@@ -18,10 +18,10 @@ print("Document with id {0} before update".format(doc_id))
 print(document_before_update)
 
 # Create mutation to update the zipCode field
-mutation = {'$put': {'address.zipCode': 95196}}
+mutation = {'$set': {'address.zipCode': 95196}}
 
 # Execute update
-store.update(id=doc_id, mutation=mutation)
+store.update(_id=doc_id, mutation=mutation)
 
 document_after_update = store.find_by_id(doc_id)
 print('Document with id {0} after update'.format(doc_id))

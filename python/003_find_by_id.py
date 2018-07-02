@@ -14,7 +14,7 @@ store = connection.get_store('/demo_table')
 doc = store.find_by_id("user0001")
 
 # Print the OJAI Document
-print(doc.as_dictionary())
+print(doc)
 
 # close the OJAI connection
 connection.close()
