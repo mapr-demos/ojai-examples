@@ -13,13 +13,14 @@
 package com.mapr.ojai.examples;
 
 import org.ojai.Document;
-import org.ojai.DocumentStream;
 import org.ojai.store.Connection;
 import org.ojai.store.DocumentStore;
 import org.ojai.store.DriverManager;
 import org.ojai.store.Query;
+import org.ojai.store.QueryCondition.Op;
+import org.ojai.store.QueryResult;
 
-public class OJAI_005_FindAllQuery {
+public class OJAI_014_FindQueryPlan {
 
   public static void main(final String[] args) {
 
@@ -31,13 +32,21 @@ public class OJAI_005_FindAllQuery {
     // Get an instance of OJAI DocumentStore
     final DocumentStore store = connection.getStore("/demo_table");
 
-    // Build an OJAI query
-    final Query query = connection.newQuery().build();
+    // Build an OJAI query with QueryCondition
+    final Query query = connection.newQuery()
+        .where(
+            connection.newCondition()                   //
+                .is("address.zipCode", Op.EQUAL, 95196)   // Build an OJAI QueryCondition
+                .build())                                 //
+        .build();
 
-    // fetch all OJAI Documents from this store
-    final DocumentStream stream = store.find(query);
+    // Fetch OJAI Documents with 'address.zipCode' equals to 95196 from this store
+    final QueryResult queryResult = store.find(query);
+    System.out.println("Query Plan:");
+    System.out.println(queryResult.getQueryPlan().asJsonString());
 
-    for (final Document userDocument : stream) {
+    System.out.println("\nQuery Result:");
+    for (final Document userDocument : queryResult) {
       // Print the OJAI Document
       System.out.println(userDocument.asJsonString());
     }
@@ -45,7 +54,7 @@ public class OJAI_005_FindAllQuery {
     // Close this instance of OJAI DocumentStore
     store.close();
 
-    // close the OJAI connection and release any resources held by the connection
+    // Close the OJAI connection and release any resources held by the connection
     connection.close();
 
     System.out.println("==== End Application ===");

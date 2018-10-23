@@ -22,11 +22,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.ojai.samples</groupId>
-  <artifactId>ojai-2-samples</artifactId>
+  <artifactId>ojai-samples</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <packaging>jar</packaging>
-  <name>OJAI 2.0 Samples</name>
+  <name>OJAI 3.0 Samples</name>
   <url>https://github.com/ojai/samples</url>
 
   <licenses>
@@ -44,7 +44,7 @@
   </repositories>
 
   <properties>
-    <mapr.library.version>6.0.0-mapr</mapr.library.version>
+    <mapr.library.version>6.1.0-mapr</mapr.library.version>
 
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>

@@ -1,11 +1,11 @@
-# Getting Started with MapR-DB and OJAI 2.0
+# Getting Started with MapR-DB and OJAI 3.0
 
-This project contains examples to discover the key features of OJAI 2.0 and MapR-DB JSON. 
+This project contains examples to discover the key features of OJAI 3.0 and MapR-DB JSON. 
 
 
 **Prerequisites**
 
-* MapR Converged Data Platform 6.0
+* MapR Converged Data Platform 6.1
 * JDK 8
 * Maven 3.0
 
@@ -38,10 +38,10 @@ $ mvn clean package
 Copy the application jar to your MapR cluster, for example:
 
 ```
-$ scp ./target/ojai-2-samples-1.0-SNAPSHOT.jar mapr@mapr60:/home/mapr/ 
+$ scp ./target/ojai-samples-1.0-SNAPSHOT.jar mapr@mapr61:/home/mapr/ 
 ```
 
-Where `mapr60` is one of the node of the MapR cluster.
+Where `mapr61` is one of the node of the MapR cluster.
 
 
 #### 3 - Run the Sample Application
@@ -50,29 +50,31 @@ In a terminal window, connected as mapr user type the following commands to run 
 
 
 ```
-$ java -cp ojai-2-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_001_GetConnectionCreateDocument 
+$ java -cp ojai-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_001_GetConnectionCreateDocument 
 
-$ java -cp ojai-2-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_002_GetStoreAndInsertDocuments 
+$ java -cp ojai-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_002_GetStoreAndInsertDocuments 
 
-$ java -cp ojai-2-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_003_FindById 
+$ java -cp ojai-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_003_FindById 
 
-$ java -cp ojai-2-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_004_FindAll
+$ java -cp ojai-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_004_FindAll
 
-$ java -cp ojai-2-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_005_FindAllQuery 
+$ java -cp ojai-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_005_FindAllQuery 
 
-$ java -cp ojai-2-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_006_FindQueryWithSelect 
+$ java -cp ojai-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_006_FindQueryWithSelect 
 
-$ java -cp ojai-2-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_008_FindQueryWithConditionJson 
+$ java -cp ojai-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_008_FindQueryWithConditionJson 
 
-$ java -cp ojai-2-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_009_FindQueryWithSelectAndCondition 
+$ java -cp ojai-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_009_FindQueryWithSelectAndCondition 
 
-$ java -cp ojai-2-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_010_FindQueryWithOrderBy
+$ java -cp ojai-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_010_FindQueryWithOrderBy
 
-$ java -cp ojai-2-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_011_FindQueryWithOrderByLimitOffset 
+$ java -cp ojai-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_011_FindQueryWithOrderByLimitOffset 
 
-$ java -cp ojai-2-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_012_UpdateDocument 
+$ java -cp ojai-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_012_UpdateDocument 
 
-$ java -cp ojai-2-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_013_ReadYourOwnWrite 
+$ java -cp ojai-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_013_ReadYourOwnWrite 
+
+$ java -cp ojai-samples-1.0-SNAPSHOT.jar:`mapr clientclasspath` com.mapr.ojai.examples.OJAI_014_FindQueryPlan 
 
 ```
 
@@ -88,14 +90,14 @@ Create a file  `/opt/mapr/conf/mapr-clusters.conf`
 Add the following configuration of your cluster in the file:
 
 ```
-my.cluster.com secure=false mapr60:7222
+my.cluster.com secure=false mapr61:7222
 ```
 
 Where:
 
 * `my.cluster.com` is the name of your cluster
 * `secure=false` specifies that the cluster secure mode is not enabled
-* `mapr60:7222` is the host and port of the CLDB.
+* `mapr61:7222` is the host and port of the CLDB.
 
 **2- Change the Table Permission**
 
@@ -206,7 +208,7 @@ Once the document is created use the 'store.insertOrUpdate()' method, or other, 
 
 ## Conclusion
 
-This project shows the key features of OJAI 2.0 and how you can use the API to work with MapR-DB JSON:
+This project shows the key features of OJAI 3.0 and how you can use the API to work with MapR-DB JSON:
 
 * create and insert document
 * update documents
