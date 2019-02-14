@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	client "github.com/mapr/private-maprdb-go-client"
+	client "github.com/mapr/maprdb-go-client"
 )
 
 func main() {
