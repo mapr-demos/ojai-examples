@@ -11,7 +11,7 @@ connection = ConnectionFactory.get_connection(connection_str=connection_str)
 store = connection.get_store('/demo_table')
 
 # Create an OJAI query
-query = {"$select": ["_id", "name"], "$orderby": {"_id": "asc"}}
+query = {"$select": ["_id", "firstName"], "$orderby": {"_id": "asc"}}
 
 # fetch OJAI Documents by query
 query_result = store.find(query)

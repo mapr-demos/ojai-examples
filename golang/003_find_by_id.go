@@ -30,7 +30,7 @@ func main() {
 	}
 
 	// Fetch the OJAI Document by its '_id' field
-	doc, err := store.FindByIdString("id0001")
+	doc, err := store.FindByIdString("user0001")
 	if err != nil {
 		panic(err)
 	}
